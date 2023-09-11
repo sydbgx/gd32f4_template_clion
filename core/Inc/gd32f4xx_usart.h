@@ -1,6 +1,6 @@
 /*!
     \file    gd32f4xx_usart.h
-    \brief   definitions for the USART
+    \brief   definitions for the usart
 
     \version 2016-08-15, V1.0.0, firmware for GD32F4xx
     \version 2018-12-12, V2.0.0, firmware for GD32F4xx
@@ -51,17 +51,17 @@ OF SUCH DAMAGE.
 #define USART5                        (USART_BASE+0x0000D000U)       /*!< USART5 base address */
 
 /* registers definitions */
-#define USART_STAT0(usartx)           REG32((usartx) + 0x00U)        /*!< USART status register 0 */
-#define USART_DATA(usartx)            REG32((usartx) + 0x04U)        /*!< USART data register */
-#define USART_BAUD(usartx)            REG32((usartx) + 0x08U)        /*!< USART baud rate register */
-#define USART_CTL0(usartx)            REG32((usartx) + 0x0CU)        /*!< USART control register 0 */
-#define USART_CTL1(usartx)            REG32((usartx) + 0x10U)        /*!< USART control register 1 */
-#define USART_CTL2(usartx)            REG32((usartx) + 0x14U)        /*!< USART control register 2 */
-#define USART_GP(usartx)              REG32((usartx) + 0x18U)        /*!< USART guard time and prescaler register */
-#define USART_CTL3(usartx)            REG32((usartx) + 0x80U)        /*!< USART control register 3 */
-#define USART_RT(usartx)              REG32((usartx) + 0x84U)        /*!< USART receiver timeout register */
-#define USART_STAT1(usartx)           REG32((usartx) + 0x88U)        /*!< USART status register 1 */
-#define USART_CHC(usartx)             REG32((usartx) + 0xC0U)        /*!< USART coherence control register */
+#define USART_STAT0(usartx)           REG32((usartx) + 0x00U)        /*!< usart status register 0 */
+#define USART_DATA(usartx)            REG32((usartx) + 0x04U)        /*!< usart data register */
+#define USART_BAUD(usartx)            REG32((usartx) + 0x08U)        /*!< usart baud rate register */
+#define USART_CTL0(usartx)            REG32((usartx) + 0x0CU)        /*!< usart control register 0 */
+#define USART_CTL1(usartx)            REG32((usartx) + 0x10U)        /*!< usart control register 1 */
+#define USART_CTL2(usartx)            REG32((usartx) + 0x14U)        /*!< usart control register 2 */
+#define USART_GP(usartx)              REG32((usartx) + 0x18U)        /*!< usart guard time and prescaler register */
+#define USART_CTL3(usartx)            REG32((usartx) + 0x80U)        /*!< usart control register 3 */
+#define USART_RT(usartx)              REG32((usartx) + 0x84U)        /*!< usart receiver timeout register */
+#define USART_STAT1(usartx)           REG32((usartx) + 0x88U)        /*!< usart status register 1 */
+#define USART_CHC(usartx)             REG32((usartx) + 0xC0U)        /*!< usart coherence control register */
 
 /* bits definitions */
 /* USARTx_STAT0 */
@@ -97,11 +97,11 @@ OF SUCH DAMAGE.
 #define USART_CTL0_PCEN               BIT(10)      /*!< parity check function enable */
 #define USART_CTL0_WM                 BIT(11)      /*!< wakeup method in mute mode */
 #define USART_CTL0_WL                 BIT(12)      /*!< word length */
-#define USART_CTL0_UEN                BIT(13)      /*!< USART enable */
+#define USART_CTL0_UEN                BIT(13)      /*!< usart enable */
 #define USART_CTL0_OVSMOD             BIT(15)      /*!< oversample mode */
 
 /* USARTx_CTL1 */
-#define USART_CTL1_ADDR               BITS(0,3)    /*!< address of USART */
+#define USART_CTL1_ADDR               BITS(0,3)    /*!< address of usart */
 #define USART_CTL1_LBLEN              BIT(5)       /*!< LIN break frame length */
 #define USART_CTL1_LBDIE              BIT(6)       /*!< LIN break detected interrupt eanble */
 #define USART_CTL1_CLEN               BIT(8)       /*!< CK length */
@@ -155,7 +155,7 @@ OF SUCH DAMAGE.
 #define USART_CHC_EPERR               BIT(8)       /*!< early parity error flag */
 
 /* constants definitions */
-/* define the USART bit position and its register index offset */
+/* define the usart bit position and its register index offset */
 #define USART_REGIDX_BIT(regidx, bitpos)    (((uint32_t)(regidx) << 6) | (uint32_t)(bitpos))
 #define USART_REG_VAL(usartx, offset)       (REG32((usartx) + (((uint32_t)(offset) & 0xFFFFU) >> 6)))
 #define USART_BIT_POS(val)                  ((uint32_t)(val) & 0x1FU)
@@ -173,7 +173,7 @@ OF SUCH DAMAGE.
 #define USART_CTL3_REG_OFFSET               0x80U        /*!< CTL3 register offset */
 #define USART_CHC_REG_OFFSET                0xC0U        /*!< CHC register offset */
 
-/* USART flags */
+/* usart flags */
 typedef enum {
     /* flags in STAT0 register */
     USART_FLAG_CTS = USART_REGIDX_BIT(USART_STAT0_REG_OFFSET, 9U),      /*!< CTS change flag */
@@ -194,7 +194,7 @@ typedef enum {
     USART_FLAG_EPERR = USART_REGIDX_BIT(USART_CHC_REG_OFFSET, 8U),      /*!< early parity error flag */
 } usart_flag_enum;
 
-/* USART interrupt flags */
+/* usart interrupt flags */
 typedef enum {
     /* interrupt flags in CTL0 register */
     USART_INT_FLAG_PERR = USART_REGIDX_BIT2(USART_CTL0_REG_OFFSET, 8U, USART_STAT0_REG_OFFSET, 0U),       /*!< parity error interrupt and flag */
@@ -215,7 +215,7 @@ typedef enum {
     USART_INT_FLAG_RT = USART_REGIDX_BIT2(USART_CTL3_REG_OFFSET, 4U, USART_STAT1_REG_OFFSET, 11U),        /*!< interrupt enable bit of receive timeout event and flag */
 } usart_interrupt_flag_enum;
 
-/* USART interrupt flags */
+/* usart interrupt flags */
 typedef enum {
     /* interrupt in CTL0 register */
     USART_INT_PERR = USART_REGIDX_BIT(USART_CTL0_REG_OFFSET, 8U),      /*!< parity error interrupt */
@@ -233,7 +233,7 @@ typedef enum {
     USART_INT_RT = USART_REGIDX_BIT(USART_CTL3_REG_OFFSET, 4U),        /*!< interrupt enable bit of receive timeout event */
 } usart_interrupt_enum;
 
-/* USART invert configure */
+/* usart invert configure */
 typedef enum {
     /* data bit level inversion */
     USART_DINV_ENABLE,                             /*!< data bit level inversion */
@@ -246,95 +246,95 @@ typedef enum {
     USART_RXPIN_DISABLE,                           /*!< RX pin level not inversion */
 } usart_invert_enum;
 
-/* USART receiver configure */
+/* usart receiver configure */
 #define CTL0_REN(regval)              (BIT(2) & ((uint32_t)(regval) << 2))
 #define USART_RECEIVE_ENABLE          CTL0_REN(1)                      /*!< enable receiver */
 #define USART_RECEIVE_DISABLE         CTL0_REN(0)                      /*!< disable receiver */
 
-/* USART transmitter configure */
+/* usart transmitter configure */
 #define CTL0_TEN(regval)              (BIT(3) & ((uint32_t)(regval) << 3))
 #define USART_TRANSMIT_ENABLE         CTL0_TEN(1)                      /*!< enable transmitter */
 #define USART_TRANSMIT_DISABLE        CTL0_TEN(0)                      /*!< disable transmitter */
 
-/* USART parity bits definitions */
+/* usart parity bits definitions */
 #define CTL0_PM(regval)               (BITS(9,10) & ((uint32_t)(regval) << 9))
 #define USART_PM_NONE                 CTL0_PM(0)                       /*!< no parity */
 #define USART_PM_EVEN                 CTL0_PM(2)                       /*!< even parity */
 #define USART_PM_ODD                  CTL0_PM(3)                       /*!< odd parity */
 
-/* USART wakeup method in mute mode */
+/* usart wakeup method in mute mode */
 #define CTL0_WM(regval)               (BIT(11) & ((uint32_t)(regval) << 11))
 #define USART_WM_IDLE                 CTL0_WM(0)                       /*!< idle Line */
 #define USART_WM_ADDR                 CTL0_WM(1)                       /*!< address mask */
 
-/* USART word length definitions */
+/* usart word length definitions */
 #define CTL0_WL(regval)               (BIT(12) & ((uint32_t)(regval) << 12))
 #define USART_WL_8BIT                 CTL0_WL(0)                       /*!< 8 bits */
 #define USART_WL_9BIT                 CTL0_WL(1)                       /*!< 9 bits */
 
-/* USART oversampling mode definitions */
+/* usart oversampling mode definitions */
 #define CTL0_OVSMOD(regval)           (BIT(15) & ((uint32_t)(regval) << 15))
 #define USART_OVSMOD_16               CTL0_OVSMOD(0)                   /*!< 16 bits */
 #define USART_OVSMOD_8                CTL0_OVSMOD(1)                   /*!< 8 bits */
 
-/* USART stop bits definitions */
+/* usart stop bits definitions */
 #define CTL1_STB(regval)              (BITS(12,13) & ((uint32_t)(regval) << 12))
 #define USART_STB_1BIT                CTL1_STB(0)                      /*!< 1 bit */
 #define USART_STB_0_5BIT              CTL1_STB(1)                      /*!< 0.5 bit */
 #define USART_STB_2BIT                CTL1_STB(2)                      /*!< 2 bits */
 #define USART_STB_1_5BIT              CTL1_STB(3)                      /*!< 1.5 bits */
 
-/* USART LIN break frame length */
+/* usart LIN break frame length */
 #define CTL1_LBLEN(regval)            (BIT(5) & ((uint32_t)(regval) << 5))
 #define USART_LBLEN_10B               CTL1_LBLEN(0)                    /*!< 10 bits */
 #define USART_LBLEN_11B               CTL1_LBLEN(1)                    /*!< 11 bits */
 
-/* USART CK length */
+/* usart CK length */
 #define CTL1_CLEN(regval)             (BIT(8) & ((uint32_t)(regval) << 8))
 #define USART_CLEN_NONE               CTL1_CLEN(0)                     /*!< there are 7 CK pulses for an 8 bit frame and 8 CK pulses for a 9 bit frame */
 #define USART_CLEN_EN                 CTL1_CLEN(1)                     /*!< there are 8 CK pulses for an 8 bit frame and 9 CK pulses for a 9 bit frame */
 
-/* USART clock phase */
+/* usart clock phase */
 #define CTL1_CPH(regval)              (BIT(9) & ((uint32_t)(regval) << 9))
 #define USART_CPH_1CK                 CTL1_CPH(0)                      /*!< first clock transition is the first data capture edge */
 #define USART_CPH_2CK                 CTL1_CPH(1)                      /*!< second clock transition is the first data capture edge */
 
-/* USART clock polarity */
+/* usart clock polarity */
 #define CTL1_CPL(regval)              (BIT(10) & ((uint32_t)(regval) << 10))
 #define USART_CPL_LOW                 CTL1_CPL(0)                      /*!< steady low value on CK pin */
 #define USART_CPL_HIGH                CTL1_CPL(1)                      /*!< steady high value on CK pin */
 
-/* USART DMA request for receive configure */
+/* usart DMA request for receive configure */
 #define CLT2_DENR(regval)             (BIT(6) & ((uint32_t)(regval) << 6))
 #define USART_DENR_ENABLE             CLT2_DENR(1)                     /*!< DMA request enable for reception */
 #define USART_DENR_DISABLE            CLT2_DENR(0)                     /*!< DMA request disable for reception */
 
-/* USART DMA request for transmission configure */
+/* usart DMA request for transmission configure */
 #define CLT2_DENT(regval)             (BIT(7) & ((uint32_t)(regval) << 7))
 #define USART_DENT_ENABLE             CLT2_DENT(1)                     /*!< DMA request enable for transmission */
 #define USART_DENT_DISABLE            CLT2_DENT(0)                     /*!< DMA request disable for transmission */
 
-/* USART RTS configure */
+/* usart RTS configure */
 #define CLT2_RTSEN(regval)            (BIT(8) & ((uint32_t)(regval) << 8))
 #define USART_RTS_ENABLE              CLT2_RTSEN(1)                    /*!< RTS enable */
 #define USART_RTS_DISABLE             CLT2_RTSEN(0)                    /*!< RTS disable */
 
-/* USART CTS configure */
+/* usart CTS configure */
 #define CLT2_CTSEN(regval)            (BIT(9) & ((uint32_t)(regval) << 9))
 #define USART_CTS_ENABLE              CLT2_CTSEN(1)                    /*!< CTS enable */
 #define USART_CTS_DISABLE             CLT2_CTSEN(0)                    /*!< CTS disable */
 
-/* USART one sample bit method configure */
+/* usart one sample bit method configure */
 #define CTL2_OSB(regval)              (BIT(11) & ((uint32_t)(regval) << 11))
 #define USART_OSB_1bit                CTL2_OSB(1)                      /*!< 1 bit */
 #define USART_OSB_3bit                CTL2_OSB(0)                      /*!< 3 bits */
 
-/* USART IrDA low-power enable */
+/* usart IrDA low-power enable */
 #define CTL2_IRLP(regval)             (BIT(2) & ((uint32_t)(regval) << 2))
 #define USART_IRLP_LOW                CTL2_IRLP(1)                     /*!< low-power */
 #define USART_IRLP_NORMAL             CTL2_IRLP(0)                     /*!< normal */
 
-/* USART data is transmitted/received with the LSB/MSB first */
+/* usart data is transmitted/received with the LSB/MSB first */
 #define CTL3_MSBF(regval)             (BIT(11) & ((uint32_t)(regval) << 11))
 #define USART_MSBF_LSB                CTL3_MSBF(0)                     /*!< LSB first */
 #define USART_MSBF_MSB                CTL3_MSBF(1)                     /*!< MSB first */
@@ -344,19 +344,19 @@ typedef enum {
 #define USART_BCM_NONE                CHC_BCM(0)                       /*!< no parity error is detected */
 #define USART_BCM_EN                  CHC_BCM(1)                       /*!< parity error is detected */
 
-/* USART parity check coherence mode */
+/* usart parity check coherence mode */
 #define CHC_PCM(regval)               (BIT(1) & ((uint32_t)(regval) << 1))
 #define USART_PCM_NONE                CHC_PCM(0)                       /*!< not check parity */
 #define USART_PCM_EN                  CHC_PCM(1)                       /*!< check the parity */
 
-/* USART hardware flow control coherence mode */
+/* usart hardware flow control coherence mode */
 #define CHC_HCM(regval)               (BIT(0) & ((uint32_t)(regval) << 0))
 #define USART_HCM_NONE                CHC_HCM(0)                       /*!< nRTS signal equals to the rxne status register */
 #define USART_HCM_EN                  CHC_HCM(1)                       /*!< nRTS signal is set when the last data bit has been sampled */
 
 /* function declarations */
 /* initialization functions */
-/* reset USART */
+/* reset usart */
 void usart_deinit(uint32_t usart_periph);
 /* configure usart baud rate value */
 void usart_baudrate_set(uint32_t usart_periph, uint32_t baudval);
@@ -370,17 +370,17 @@ void usart_stop_bit_set(uint32_t usart_periph, uint32_t stblen);
 void usart_enable(uint32_t usart_periph);
 /* disable usart */
 void usart_disable(uint32_t usart_periph);
-/* configure USART transmitter */
+/* configure usart transmitter */
 void usart_transmit_config(uint32_t usart_periph, uint32_t txconfig);
-/* configure USART receiver */
+/* configure usart receiver */
 void usart_receive_config(uint32_t usart_periph, uint32_t rxconfig);
 
-/* USART normal mode communication */
+/* usart normal mode communication */
 /* data is transmitted/received with the LSB/MSB first */
 void usart_data_first_config(uint32_t usart_periph, uint32_t msbf);
-/* configure USART inverted */
+/* configure usart inverted */
 void usart_invert_config(uint32_t usart_periph, usart_invert_enum invertpara);
-/* configure the USART oversample mode */
+/* configure the usart oversample mode */
 void usart_oversample_config(uint32_t usart_periph, uint32_t oversamp);
 /* configure sample bit method */
 void usart_sample_bit_config(uint32_t usart_periph, uint32_t obsm);
@@ -390,13 +390,13 @@ void usart_receiver_timeout_enable(uint32_t usart_periph);
 void usart_receiver_timeout_disable(uint32_t usart_periph);
 /* configure receiver timeout threshold */
 void usart_receiver_timeout_threshold_config(uint32_t usart_periph, uint32_t rtimeout);
-/* USART transmit data function */
+/* usart transmit data function */
 void usart_data_transmit(uint32_t usart_periph, uint32_t data);
-/* USART receive data function */
+/* usart receive data function */
 uint16_t usart_data_receive(uint32_t usart_periph);
 
 /* multi-processor communication */
-/* configure address of the USART */
+/* configure address of the usart */
 void usart_address_config(uint32_t usart_periph, uint8_t addr);
 /* enable mute mode */
 void usart_mute_mode_enable(uint32_t usart_periph);
@@ -470,9 +470,9 @@ void usart_parity_check_coherence_config(uint32_t usart_periph, uint32_t pcm);
 void usart_hardware_flow_coherence_config(uint32_t usart_periph, uint32_t hcm);
 
 /* DMA communication */
-/* configure USART DMA for reception */
+/* configure usart DMA for reception */
 void usart_dma_receive_config(uint32_t usart_periph, uint32_t dmacmd);
-/* configure USART DMA for transmission */
+/* configure usart DMA for transmission */
 void usart_dma_transmit_config(uint32_t usart_periph, uint32_t dmacmd);
 
 /* flag & interrupt functions */
@@ -480,11 +480,11 @@ void usart_dma_transmit_config(uint32_t usart_periph, uint32_t dmacmd);
 FlagStatus usart_flag_get(uint32_t usart_periph, usart_flag_enum flag);
 /* clear flag in STAT0/STAT1 register */
 void usart_flag_clear(uint32_t usart_periph, usart_flag_enum flag);
-/* enable USART interrupt */
+/* enable usart interrupt */
 void usart_interrupt_enable(uint32_t usart_periph, usart_interrupt_enum interrupt);
-/* disable USART interrupt */
+/* disable usart interrupt */
 void usart_interrupt_disable(uint32_t usart_periph, usart_interrupt_enum interrupt);
-/* get USART interrupt and flag status */
+/* get usart interrupt and flag status */
 FlagStatus usart_interrupt_flag_get(uint32_t usart_periph, usart_interrupt_flag_enum int_flag);
 /* clear interrupt flag in STAT0/STAT1 register */
 void usart_interrupt_flag_clear(uint32_t usart_periph, usart_interrupt_flag_enum int_flag);

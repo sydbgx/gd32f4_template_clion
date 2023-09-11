@@ -105,7 +105,7 @@ void rcu_deinit(void)
       \arg        RCU_TIMERx (x=0,1,2,3,4,5,6,7,8,9,10,11,12,13): TIMER clock
       \arg        RCU_WWDGT: WWDGT clock
       \arg        RCU_SPIx (x=0,1,2,3,4,5): SPI clock
-      \arg        RCU_USARTx (x=0,1,2,5): USART clock
+      \arg        RCU_USARTx (x=0,1,2,5): usart clock
       \arg        RCU_UARTx (x=3,4,6,7): UART clock
       \arg        RCU_I2Cx (x=0,1,2): I2C clock
       \arg        RCU_CANx (x=0,1): CAN clock
@@ -149,7 +149,7 @@ void rcu_periph_clock_enable(rcu_periph_enum periph)
       \arg        RCU_TIMERx (x=0,1,2,3,4,5,6,7,8,9,10,11,12,13): TIMER clock
       \arg        RCU_WWDGT: WWDGT clock
       \arg        RCU_SPIx (x=0,1,2,3,4,5): SPI clock
-      \arg        RCU_USARTx (x=0,1,2,5): USART clock
+      \arg        RCU_USARTx (x=0,1,2,5): usart clock
       \arg        RCU_UARTx (x=3,4,6,7): UART clock
       \arg        RCU_I2Cx (x=0,1,2): I2C clock
       \arg        RCU_CANx (x=0,1): CAN clock
@@ -196,7 +196,7 @@ void rcu_periph_clock_disable(rcu_periph_enum periph)
       \arg        RCU_TIMERx_SLP (x=0,1,2,3,4,5,6,7,8,9,10,11,12,13): TIMER clock
       \arg        RCU_WWDGT_SLP: WWDGT clock
       \arg        RCU_SPIx_SLP (x=0,1,2,3,4,5): SPI clock
-      \arg        RCU_USARTx_SLP (x=0,1,2,5): USART clock
+      \arg        RCU_USARTx_SLP (x=0,1,2,5): usart clock
       \arg        RCU_UARTx_SLP (x=3,4,6,7): UART clock
       \arg        RCU_I2Cx_SLP (x=0,1,2): I2C clock
       \arg        RCU_CANx_SLP (x=0,1): CAN clock
@@ -243,7 +243,7 @@ void rcu_periph_clock_sleep_enable(rcu_periph_sleep_enum periph)
       \arg        RCU_TIMERx_SLP (x=0,1,2,3,4,5,6,7,8,9,10,11,12,13): TIMER clock
       \arg        RCU_WWDGT_SLP: WWDGT clock
       \arg        RCU_SPIx_SLP (x=0,1,2,3,4,5): SPI clock
-      \arg        RCU_USARTx_SLP (x=0,1,2,5): USART clock
+      \arg        RCU_USARTx_SLP (x=0,1,2,5): usart clock
       \arg        RCU_UARTx_SLP (x=3,4,6,7): UART clock
       \arg        RCU_I2Cx_SLP (x=0,1,2): I2C clock
       \arg        RCU_CANx_SLP (x=0,1): CAN clock
@@ -281,7 +281,7 @@ void rcu_periph_clock_sleep_disable(rcu_periph_sleep_enum periph)
       \arg        RCU_TIMERxRST (x=0,1,2,3,4,5,6,7,8,9,10,11,12,13): reset TIMER
       \arg        RCU_WWDGTRST: reset WWDGT
       \arg        RCU_SPIxRST (x=0,1,2,3,4,5): reset SPI
-      \arg        RCU_USARTxRST (x=0,1,2,5): reset USART
+      \arg        RCU_USARTxRST (x=0,1,2,5): reset usart
       \arg        RCU_UARTxRST (x=3,4,6,7): reset UART
       \arg        RCU_I2CxRST (x=0,1,2): reset I2C
       \arg        RCU_CANxRST (x=0,1): reset CAN
@@ -318,7 +318,7 @@ void rcu_periph_reset_enable(rcu_periph_reset_enum periph_reset)
       \arg        RCU_TIMERxRST (x=0,1,2,3,4,5,6,7,8,9,10,11,12,13): reset TIMER
       \arg        RCU_WWDGTRST: reset WWDGT
       \arg        RCU_SPIxRST (x=0,1,2,3,4,5): reset SPI
-      \arg        RCU_USARTxRST (x=0,1,2,5): reset USART
+      \arg        RCU_USARTxRST (x=0,1,2,5): reset usart
       \arg        RCU_UARTxRST (x=3,4,6,7): reset UART
       \arg        RCU_I2CxRST (x=0,1,2): reset I2C
       \arg        RCU_CANxRST (x=0,1): reset CAN

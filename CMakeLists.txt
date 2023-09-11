@@ -50,26 +50,28 @@ endif ()
 include_directories(
         core/Inc
         drivers/CMSIS
-        my_lib/LED
+        my_lib/led
         my_lib/delay
-        my_lib/USART
+        my_lib/usart
+        my_lib/adc
         user
-        )
+)
 
 add_definitions(
         -DGD32F450
         -DUSE_STDPERIPH_DRIVER
-        )
+)
 
 file(GLOB_RECURSE SOURCES
         "startup/startup_gd32f450.S"
         "core/Src/*.c"
         "drivers/CMSIS/*.c"
         "user/*.*"
-        "my_lib/LED/*.*"
+        "my_lib/led/*.*"
         "my_lib/delay/*.*"
-        "my_lib/USART/*.*"
-        )
+        "my_lib/usart/*.*"
+        "my_lib/adc/*.*"
+)
 # 可修改结束
 
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/gd32f450z_flash.ld)

@@ -1,6 +1,6 @@
 /*!
     \file    gd32f4xx_usart.c
-    \brief   USART driver
+    \brief   usart driver
 
     \version 2016-08-15, V1.0.0, firmware for GD32F4xx
     \version 2018-12-12, V2.0.0, firmware for GD32F4xx
@@ -37,13 +37,13 @@ OF SUCH DAMAGE.
 
 #include "gd32f4xx_usart.h"
 
-/* USART register bit offset */
+/* usart register bit offset */
 #define GP_GUAT_OFFSET            ((uint32_t)8U)       /* bit offset of GUAT in USART_GP */
 #define CTL3_SCRTNUM_OFFSET       ((uint32_t)1U)       /* bit offset of SCRTNUM in USART_CTL3 */
 #define RT_BL_OFFSET              ((uint32_t)24U)      /* bit offset of BL in USART_RT */
 
 /*!
-    \brief    reset USART/UART
+    \brief    reset usart/UART
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[out] none
     \retval     none
@@ -89,7 +89,7 @@ void usart_deinit(uint32_t usart_periph)
 }
 
 /*!
-    \brief    configure USART baud rate value
+    \brief    configure usart baud rate value
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[in]  baudval: baud rate value
     \param[out] none
@@ -143,9 +143,9 @@ void usart_baudrate_set(uint32_t usart_periph, uint32_t baudval)
 }
 
 /*!
-    \brief   configure USART parity function
+    \brief   configure usart parity function
     \param[in] usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in] paritycfg: configure USART parity
+    \param[in] paritycfg: configure usart parity
                only one parameter can be selected which is shown as below:
       \arg       USART_PM_NONE: no parity
       \arg       USART_PM_EVEN: even parity
@@ -157,14 +157,14 @@ void usart_parity_config(uint32_t usart_periph, uint32_t paritycfg)
 {
     /* clear USART_CTL0 PM,PCEN Bits */
     USART_CTL0(usart_periph) &= ~(USART_CTL0_PM | USART_CTL0_PCEN);
-    /* configure USART parity mode */
+    /* configure usart parity mode */
     USART_CTL0(usart_periph) |= paritycfg ;
 }
 
 /*!
-    \brief   configure USART word length
+    \brief   configure usart word length
     \param[in] usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in] wlen: USART word length configure
+    \param[in] wlen: usart word length configure
                only one parameter can be selected which is shown as below:
       \arg       USART_WL_8BIT: 8 bits
       \arg       USART_WL_9BIT: 9 bits
@@ -175,14 +175,14 @@ void usart_word_length_set(uint32_t usart_periph, uint32_t wlen)
 {
     /* clear USART_CTL0 WL bit */
     USART_CTL0(usart_periph) &= ~USART_CTL0_WL;
-    /* configure USART word length */
+    /* configure usart word length */
     USART_CTL0(usart_periph) |= wlen;
 }
 
 /*!
-    \brief   configure USART stop bit length
+    \brief   configure usart stop bit length
     \param[in] usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in] stblen: USART stop bit configure
+    \param[in] stblen: usart stop bit configure
                only one parameter can be selected which is shown as below:
       \arg       USART_STB_1BIT:   1 bit
       \arg       USART_STB_0_5BIT: 0.5 bit(not available for UARTx(x=3,4,6,7))
@@ -195,11 +195,11 @@ void usart_stop_bit_set(uint32_t usart_periph, uint32_t stblen)
 {
     /* clear USART_CTL1 STB bits */
     USART_CTL1(usart_periph) &= ~USART_CTL1_STB;
-    /* configure USART stop bits */
+    /* configure usart stop bits */
     USART_CTL1(usart_periph) |= stblen;
 }
 /*!
-    \brief    enable USART
+    \brief    enable usart
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[out] none
     \retval     none
@@ -210,7 +210,7 @@ void usart_enable(uint32_t usart_periph)
 }
 
 /*!
-    \brief   disable USART
+    \brief   disable usart
     \param[in] usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[out] none
     \retval     none
@@ -221,12 +221,12 @@ void usart_disable(uint32_t usart_periph)
 }
 
 /*!
-    \brief    configure USART transmitter
+    \brief    configure usart transmitter
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in]  txconfig: enable or disable USART transmitter
+    \param[in]  txconfig: enable or disable usart transmitter
                 only one parameter can be selected which is shown as below:
-      \arg        USART_TRANSMIT_ENABLE: enable USART transmission
-      \arg        USART_TRANSMIT_DISABLE: enable USART transmission
+      \arg        USART_TRANSMIT_ENABLE: enable usart transmission
+      \arg        USART_TRANSMIT_DISABLE: enable usart transmission
     \param[out] none
     \retval     none
 */
@@ -242,12 +242,12 @@ void usart_transmit_config(uint32_t usart_periph, uint32_t txconfig)
 }
 
 /*!
-    \brief    configure USART receiver
+    \brief    configure usart receiver
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in]  rxconfig: enable or disable USART receiver
+    \param[in]  rxconfig: enable or disable usart receiver
                 only one parameter can be selected which is shown as below:
-      \arg        USART_RECEIVE_ENABLE: enable USART reception
-      \arg        USART_RECEIVE_DISABLE: disable USART reception
+      \arg        USART_RECEIVE_ENABLE: enable usart reception
+      \arg        USART_RECEIVE_DISABLE: disable usart reception
     \param[out] none
     \retval     none
 */
@@ -284,7 +284,7 @@ void usart_data_first_config(uint32_t usart_periph, uint32_t msbf)
 }
 
 /*!
-    \brief    configure USART inversion
+    \brief    configure usart inversion
     \param[in]  usart_periph: USARTx(x=0,1,2,5)
     \param[in]  invertpara: refer to enum USART_INVERT_CONFIG
                 only one parameter can be selected which is shown as below:
@@ -325,7 +325,7 @@ void usart_invert_config(uint32_t usart_periph, usart_invert_enum invertpara)
 }
 
 /*!
-    \brief    configure the USART oversample mode
+    \brief    configure the usart oversample mode
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[in]  oversamp: oversample value
                 only one parameter can be selected which is shown as below:
@@ -358,7 +358,7 @@ void usart_sample_bit_config(uint32_t usart_periph, uint32_t obsm)
 }
 
 /*!
-    \brief    enable receiver timeout of USART
+    \brief    enable receiver timeout of usart
     \param[in]  usart_periph: USARTx(x=0,1,2,5)
     \param[out] none
     \retval     none
@@ -369,7 +369,7 @@ void usart_receiver_timeout_enable(uint32_t usart_periph)
 }
 
 /*!
-    \brief    disable receiver timeout of USART
+    \brief    disable receiver timeout of usart
     \param[in]  usart_periph: USARTx(x=0,1,2,5)
     \param[out] none
     \retval     none
@@ -380,7 +380,7 @@ void usart_receiver_timeout_disable(uint32_t usart_periph)
 }
 
 /*!
-    \brief    set the receiver timeout threshold of USART
+    \brief    set the receiver timeout threshold of usart
     \param[in]  usart_periph: USARTx(x=0,1,2,5)
     \param[in]  rtimeout: 0-0x00FFFFFF
     \param[out] none
@@ -393,7 +393,7 @@ void usart_receiver_timeout_threshold_config(uint32_t usart_periph, uint32_t rti
 }
 
 /*!
-    \brief    USART transmit data function
+    \brief    usart transmit data function
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[in]  data: data of transmission
     \param[out] none
@@ -405,7 +405,7 @@ void usart_data_transmit(uint32_t usart_periph, uint32_t data)
 }
 
 /*!
-    \brief    USART receive data function
+    \brief    usart receive data function
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[out] none
     \retval     data of received
@@ -416,9 +416,9 @@ uint16_t usart_data_receive(uint32_t usart_periph)
 }
 
 /*!
-    \brief    configure the address of the USART in wake up by address match mode
+    \brief    configure the address of the usart in wake up by address match mode
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in]  addr: address of USART/UART
+    \param[in]  addr: address of usart/UART
     \param[out] none
     \retval     none
 */
@@ -560,7 +560,7 @@ void usart_synchronous_clock_disable(uint32_t usart_periph)
 }
 
 /*!
-    \brief    configure USART synchronous mode parameters
+    \brief    configure usart synchronous mode parameters
     \param[in]  usart_periph: USARTx(x=0,1,2,5)
     \param[in]  clen: CK length
                 only one parameter can be selected which is shown as below:
@@ -696,7 +696,7 @@ void usart_irda_mode_disable(uint32_t usart_periph)
 }
 
 /*!
-    \brief    configure the peripheral clock prescaler in USART IrDA low-power mode
+    \brief    configure the peripheral clock prescaler in usart IrDA low-power mode
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[in]  psc: 0-0xFF
     \param[out] none
@@ -815,7 +815,7 @@ void usart_hardware_flow_coherence_config(uint32_t usart_periph, uint32_t hcm)
 }
 
 /*!
-    \brief    configure USART DMA reception
+    \brief    configure usart DMA reception
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[in]  dmacmd: enable or disable DMA for reception
                 only one parameter can be selected which is shown as below:
@@ -836,7 +836,7 @@ void usart_dma_receive_config(uint32_t usart_periph, uint32_t dmacmd)
 }
 
 /*!
-    \brief    configure USART DMA transmission
+    \brief    configure usart DMA transmission
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[in]  dmacmd: enable or disable DMA for transmission
                 only one parameter can be selected which is shown as below:
@@ -859,7 +859,7 @@ void usart_dma_transmit_config(uint32_t usart_periph, uint32_t dmacmd)
 /*!
     \brief    get flag in STAT0/STAT1/CHC register
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in]  flag: USART flags, refer to usart_flag_enum
+    \param[in]  flag: usart flags, refer to usart_flag_enum
                 only one parameter can be selected which is shown as below:
       \arg        USART_FLAG_CTS: CTS change flag
       \arg        USART_FLAG_LBD: LIN break detected flag
@@ -890,7 +890,7 @@ FlagStatus usart_flag_get(uint32_t usart_periph, usart_flag_enum flag)
 /*!
     \brief    clear flag in STAT0/STAT1/CHC register
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in]  flag: USART flags, refer to usart_flag_enum
+    \param[in]  flag: usart flags, refer to usart_flag_enum
                 only one parameter can be selected which is shown as below:
       \arg        USART_FLAG_CTS: CTS change flag
       \arg        USART_FLAG_LBD: LIN break detected flag
@@ -908,9 +908,9 @@ void usart_flag_clear(uint32_t usart_periph, usart_flag_enum flag)
 }
 
 /*!
-    \brief    enable USART interrupt
+    \brief    enable usart interrupt
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in]  interrupt: USART interrupts, refer to usart_interrupt_enum
+    \param[in]  interrupt: usart interrupts, refer to usart_interrupt_enum
                 only one parameter can be selected which is shown as below:
       \arg        USART_INT_PERR: parity error interrupt
       \arg        USART_INT_TBE: transmitter buffer empty interrupt
@@ -931,9 +931,9 @@ void usart_interrupt_enable(uint32_t usart_periph, usart_interrupt_enum interrup
 }
 
 /*!
-    \brief    disable USART interrupt
+    \brief    disable usart interrupt
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in]  interrupt: USART interrupts, refer to usart_interrupt_enum
+    \param[in]  interrupt: usart interrupts, refer to usart_interrupt_enum
                 only one parameter can be selected which is shown as below:
       \arg        USART_INT_PERR: parity error interrupt
       \arg        USART_INT_TBE: transmitter buffer empty interrupt
@@ -954,9 +954,9 @@ void usart_interrupt_disable(uint32_t usart_periph, usart_interrupt_enum interru
 }
 
 /*!
-    \brief    get USART interrupt and flag status
+    \brief    get usart interrupt and flag status
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in]  int_flag: USART interrupt flags, refer to usart_interrupt_flag_enum
+    \param[in]  int_flag: usart interrupt flags, refer to usart_interrupt_flag_enum
                 only one parameter can be selected which is shown as below:
       \arg        USART_INT_FLAG_PERR: parity error interrupt and flag
       \arg        USART_INT_FLAG_TBE: transmitter buffer empty interrupt and flag
@@ -990,9 +990,9 @@ FlagStatus usart_interrupt_flag_get(uint32_t usart_periph, usart_interrupt_flag_
 }
 
 /*!
-    \brief    clear USART interrupt flag in STAT0/STAT1 register
+    \brief    clear usart interrupt flag in STAT0/STAT1 register
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
-    \param[in]  int_flag: USART interrupt flags, refer to usart_interrupt_flag_enum
+    \param[in]  int_flag: usart interrupt flags, refer to usart_interrupt_flag_enum
                 only one parameter can be selected which is shown as below:
       \arg        USART_INT_FLAG_CTS: CTS change flag
       \arg        USART_INT_FLAG_LBD: LIN break detected flag

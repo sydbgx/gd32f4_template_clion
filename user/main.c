@@ -1,9 +1,9 @@
 #include "gd32f4xx.h"
 #include "stdio.h"
 #include "delay.h"
-//#include "main.h"
 #include "led.h"
 #include "usart.h"
+
 int main(void)
 {
         delay_init(200);
